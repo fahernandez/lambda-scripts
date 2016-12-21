@@ -1,0 +1,15 @@
+version: '2'
+services:
+    lambda-scripts:
+        build: .
+        image: fahernandez/lambda-scripts:latest
+        environment:
+            TERM: xterm
+        ports:
+            - "8001:8001"
+        volumes:
+            - ./bin:/bin
+    mysql:
+        image: huli/mysql:latest
+        ports:
+            - "3306:3306"
